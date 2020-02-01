@@ -16,6 +16,7 @@ after_test:
 artifacts:
 - path: \Debug\SkipList.exe
   name: Binary
+  language: csharp
 deploy: off
 {
   "language": "с++",
