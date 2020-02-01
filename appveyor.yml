@@ -1,1 +1,46 @@
+image: Visual Studio 2015
+init:
+    # секция инициализации, исполняется до клонирования проекта
+    - git config --global core.autocrlf input
+clone_folder: E:\skiplist\my-prj # выбираем локальную директорию для клонирования
+shallow_clone: true              # копируем только последний коммит, без истории (git clone --depth 1)
+matrix:
+    fast_finish: false           # не останавливаемся после возникновения ошибки в каком-то из заданий
+platform:
+    # будем гонять CI на amd64
+    - x64
+configuration:
+ - Debug
+environment:
+    matrix:
+        # ... на трёх студиях (2010, 2012, 2015)
+        - TOOLCHAIN: msvc10
+        - TOOLCHAIN: msvc12
+        - TOOLCHAIN: msvc14
+before_build:
+ - ps: $Env:PLATFORM_TOOLSET="v141"
+build:
+  project: SkipList.sln
+  parallel: true
+  verbosity: minimal
+test:
+ assemblies:
+ - '.\*\UnitTest1.dll'
+after_test:
+ - vstest.console /logger:appveyor x64\Debug\UnitTest1.dll
+artifacts:
+- path: \Debug\SkipList.exe
+  name: Binary
+deploy:
+    # выкладываем tagged-коммиты на GitHub Releases:
+    description: '$(APPVEYOR_REPO_TAG_NAME)'
+    provider: GitHub
 
+    auth_token:
+        secure: <encrypted-github-token>
+
+    artifact: package_name
+    force_update: true
+
+    on:
+        appveyor_repo_tag: true
