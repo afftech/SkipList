@@ -12,7 +12,7 @@ test:
  assemblies:
  - '.\*\UnitTest1.dll'
 after_test:
- - vstest.console /logger:Appveyor x64\Debug\UnitTest1.dll
+ - vstest.console /logger:Master x64\Debug\UnitTest1.dll
 artifacts:
 - path: \Debug\SkipList.exe
   name: Binary
