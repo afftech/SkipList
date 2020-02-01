@@ -1,8 +1,4 @@
 image: Visual Studio 2015
-init:
-    # секция инициализации, исполняется до клонирования проекта
-    - git config --global core.autocrlf input
-clone_folder: E:\skiplist\my-prj # выбираем локальную директорию для клонирования
 shallow_clone: true              # копируем только последний коммит, без истории (git clone --depth 1)
 matrix:
     fast_finish: false           # не останавливаемся после возникновения ошибки в каком-то из заданий
