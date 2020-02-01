@@ -1,4 +1,4 @@
-image: Visual Studio 2015
+image: Visual Studio 2017
 shallow_clone: true              # копируем только последний коммит, без истории (git clone --depth 1)
 matrix:
     fast_finish: false           # не останавливаемся после возникновения ошибки в каком-то из заданий
