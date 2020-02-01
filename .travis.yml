@@ -17,3 +17,9 @@ artifacts:
 - path: \Debug\SkipList.exe
   name: Binary
 deploy: off
+{
+  "language": "с++",
+  "group": "stable",
+  "dist": "trusty",
+  "os": "Windows"
+}
