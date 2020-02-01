@@ -1,0 +1,19 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+configuration:
+ - Debug
+before_build:
+ - ps: $Env:PLATFORM_TOOLSET="v141"
+build:
+  project: SkipList.sln
+  parallel: true
+  verbosity: minimal
+test:
+ assemblies:
+ - '.\*\UnitTest1.dll'
+after_test:
+ - vstest.console /logger:Appveyor x64\Debug\UnitTest1.dll
+artifacts:
+- path: \Debug\SkipList.exe
+  name: Binary
+deploy: off
