@@ -67,7 +67,7 @@ namespace UnitTest1
 			SkipList skip;
 			int r = 13, k = 15;	
 			skip.add(r, k);	
-			skip.search(r)
+			r=skip.search(r);
 
 			Assert::IsTrue(true == skip.data_search());		//Тот же тест, только с предварительной записью двухсот пар данных 											
 		}
