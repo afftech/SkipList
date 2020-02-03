@@ -69,7 +69,7 @@ namespace UnitTest1
 			skip.add(r, k);	
 			
 
-			Assert::IsTrue(true < skip.dataSearch());		//Тот же тест, только с предварительной записью двухсот пар данных 											
+			Assert::IsTrue(true == skip.data_search());		//Тот же тест, только с предварительной записью двухсот пар данных 											
 		}
 
 	};
