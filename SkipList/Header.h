@@ -187,8 +187,11 @@ public:
 		}
 		//если не равен, то нет таккого элемента
 		//и тогда возвращаем минимальное возможное значение
+		
+		else {
 		DS=false;
-		else return INT_MIN;
+		return INT_MIN;
+		}
 	};
 	bool data_search(){
 		bool ds=DS;
