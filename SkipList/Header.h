@@ -8,6 +8,8 @@
 using namespace std;
 
 class SkipList {
+	//for new test
+	bool DS= false;
 	// внутренний класс для хранения элементов списка
 	class Element {
 		//каждый элемент хранит ключ
@@ -18,8 +20,7 @@ class SkipList {
 		Element **next;
 		//число этих указателей
 		int len;
-		//for new test
-		bool DS= false;
+
 
 	public:
 		//конструктор для создания элемента
