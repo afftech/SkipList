@@ -62,6 +62,15 @@ namespace UnitTest1
 			}
 			Assert::IsTrue(0 < skip.randomLevel());		//Тот же тест, только с предварительной записью двухсот пар данных 											
 		}
+				TEST_METHOD(dataSearch)
+		{
+			SkipList skip;
+			int r = 13, k = 15;	
+			skip.add(r, k);	
+			
+
+			Assert::IsTrue(true == skip.dataSearch());		//Тот же тест, только с предварительной записью двухсот пар данных 											
+		}
 
 	};
 }
